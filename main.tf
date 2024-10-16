@@ -8,6 +8,7 @@ locals {
     }
   }
   backend = {
+    name = var.name
     enable_cdn = var.enable_cdn
     log_config = var.log_config
     groups = [
@@ -38,6 +39,8 @@ resource "google_compute_region_network_endpoint_group" "serverless_neg" {
     service = each.value["name"]
   }
 }
+
+
 
 resource "google_cloud_run_service_iam_binding" "public" {
   for_each = local.cloud_run_services
