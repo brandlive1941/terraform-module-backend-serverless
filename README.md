@@ -5,7 +5,7 @@ Module Input Variables
 ----------------------
 
 - `project` - gcp project id
-- `name` - identifier for the service
+- `name` - identifier for the backend
 - `cloud_run_services` - cloud run services to region map
 - `enable_cdn` - enable/disable cdn
 - `iap_config` - iap config
