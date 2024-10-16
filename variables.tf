@@ -9,7 +9,7 @@ variable "project_id" {
 
 variable "name" {
   type        = string
-  description = "Name to use as suffix of serverless backend"
+  description = "Name for backend"
 }
 
 variable "cloud_run_services" {
