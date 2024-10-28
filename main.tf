@@ -8,7 +8,7 @@ locals {
     }
   }
   backend = {
-    name = var.name
+    name       = var.name
     enable_cdn = var.enable_cdn
     log_config = var.log_config
     groups = [
