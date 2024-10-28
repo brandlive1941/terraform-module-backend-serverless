@@ -32,6 +32,22 @@ variable "enable_cdn" {
   default     = false
 }
 
+variable "default_custom_error_response_policy" {
+  description = "Default custom error response policy"
+  type = object({
+    custom_error_responses = optional(list(object({
+      match_response_codes   = optional(list(string))
+      path                   = optional(string)
+      override_response_code = optional(string)
+    })))
+    error_service = optional(string)
+  })
+  default = {
+    custom_error_responses = null
+    error_service          = null
+  }
+}
+
 variable "log_config" {
   description = "Log Configuration"
   type = object({
