@@ -38,6 +38,9 @@ resource "google_compute_region_network_endpoint_group" "serverless_neg" {
   cloud_run {
     service = each.value["name"]
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 
