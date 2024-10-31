@@ -39,7 +39,7 @@ resource "google_compute_region_network_endpoint_group" "serverless_neg" {
     service = each.value["name"]
   }
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
 
