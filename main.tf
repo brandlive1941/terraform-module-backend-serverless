@@ -31,7 +31,7 @@ data "google_cloud_run_v2_service" "service" {
 resource "google_compute_region_network_endpoint_group" "serverless_neg" {
   provider              = google-beta
   for_each              = local.cloud_run_services
-  name                  = "${var.name}-neg"
+  name                  = "${var.name}-${each.value["region"]}-neg"
   network_endpoint_type = "SERVERLESS"
   region                = each.value["region"]
   project               = var.project_id
