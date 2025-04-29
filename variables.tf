@@ -20,8 +20,8 @@ variable "cloud_run_services" {
   }))
 }
 
-variable "public" {
-  description = "Whether the cloud run service should will recieve traffic from external load balancer"
+variable "enable_public" {
+  description = "Whether the cloud run service should will allow public ingress without authentication"
   type        = bool
   default     = true
 }
