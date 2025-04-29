@@ -1,5 +1,4 @@
 locals {
-  public_services = var.enable_public ? var.cloud_run_services : [{}]
   cloud_run_services = {
     for service in var.cloud_run_services :
     "${var.name}-${service.region}" => {
@@ -41,7 +40,7 @@ resource "google_compute_region_network_endpoint_group" "serverless_neg" {
 }
 
 resource "google_cloud_run_service_iam_binding" "public" {
-  for_each = local.public_services
+  for_each = var.enable_public ? local.cloud_run_services : {}
   location = data.google_cloud_run_v2_service.service[each.key].location
   service  = data.google_cloud_run_v2_service.service[each.key].name
   role     = "roles/run.invoker"
