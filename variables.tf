@@ -73,3 +73,9 @@ variable "iap_config" {
     oauth2_client_secret = null
   }
 }
+
+variable "security_policy" {
+  description = "Cloud Armor security policy self link for the backend service"
+  type        = string
+  default     = null
+}
