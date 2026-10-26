@@ -16,7 +16,8 @@ locals {
         group = google_compute_region_network_endpoint_group.serverless_neg["${var.name}-${service.region}"].id
       }
     ]
-    iap_config = var.iap_config
+    iap_config      = var.iap_config
+    security_policy = var.security_policy
   }
 }
 
